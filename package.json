@@ -1,0 +1,17 @@
+{
+  "name": "ast2template-loader",
+  "version": "0.1.5",
+  "description": "webpack loader for ast2template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Cameron Bytheway <bytheway.cameron@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "ast2template": ">=0.1.0"
+  }
+}
