@@ -16,7 +16,7 @@ module.exports = function(source) {
   var opts = this.options.ast2template;
 
   opts.passThroughProps = ~(this.query || '').indexOf('pass-through');
-  otps.name = 'render_' + filename
+  opts.name = 'render_' + filename
     .replace(/-/g, '_')
     .replace(/[\/\.]/g, '__');
 
