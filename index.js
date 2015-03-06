@@ -13,7 +13,7 @@ module.exports = function(source) {
 
   if (filename === 'index' || filename === 'error') filename = path.basename(path.dirname(res)) + '/' + filename;
 
-  var opts = this.options.ast2template;
+  var opts = this.options.ast2template || {};
 
   opts.passThroughProps = ~(this.query || '').indexOf('pass-through');
   opts.name = 'render_' + filename
