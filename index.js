@@ -13,12 +13,14 @@ module.exports = function(source) {
 
   if (filename === 'index' || filename === 'error') filename = path.basename(path.dirname(res)) + '/' + filename;
 
-  var out = ast2template(source, {
-    passThroughProps: ~(this.query || '').indexOf('pass-through'),
-    name: 'render_' + filename
-      .replace(/-/g, '_')
-      .replace(/[\/\.]/g, '__')
-  });
+  var opts = this.options.ast2template;
+
+  opts.passThroughProps = ~(this.query || '').indexOf('pass-through');
+  otps.name = 'render_' + filename
+    .replace(/-/g, '_')
+    .replace(/[\/\.]/g, '__');
+
+  var out = ast2template(source, opts);
 
   return out;
 };
