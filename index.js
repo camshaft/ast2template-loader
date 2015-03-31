@@ -15,6 +15,7 @@ module.exports = function(source) {
 
   var opts = this.options.ast2template || {};
 
+  opts.nativePath = ~(this.query || '').indexOf('native-path');
   opts.passThroughProps = ~(this.query || '').indexOf('pass-through');
   opts.name = 'render_' + filename
     .replace(/-/g, '_')
