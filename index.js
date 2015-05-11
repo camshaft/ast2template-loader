@@ -3,6 +3,7 @@
  */
 
 var ast2template = require('ast2template');
+var loaderUtils = require('loader-utils');
 var path = require('path');
 
 module.exports = function(source) {
@@ -13,10 +14,10 @@ module.exports = function(source) {
 
   if (filename === 'index' || filename === 'error') filename = path.basename(path.dirname(res)) + '/' + filename;
 
-  var opts = this.options.ast2template || {};
+  var opts = loaderUtils.parseQuery(this.query);
 
-  opts.nativePath = ~(this.query || '').indexOf('native-path');
-  opts.passThroughProps = ~(this.query || '').indexOf('pass-through');
+  opts.nativePath = !!opts['native-path'];
+  opts.passThroughProps = !!opts['pass-through'];
   opts.name = 'render_' + filename
     .replace(/-/g, '_')
     .replace(/[\/\.]/g, '__');
