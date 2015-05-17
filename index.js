@@ -22,6 +22,19 @@ module.exports = function(source) {
     .replace(/-/g, '_')
     .replace(/[\/\.]/g, '__');
 
+  var self = this;
+  // this is pretty hacky... but it works!
+  var count = 0;
+  opts.resolveFilter = function(type, content, attrs) {
+    var fs = self._compiler.inputFileSystem;
+    var read = fs._readFileStorage.data;
+    var stats = fs._statStorage.data;
+    var name = res + '__filter' + (count++) + '.' + type;
+    read[name] = [null, new Buffer(content)];
+    stats[name] = stats[res];
+    return name;
+  };
+
   var out = ast2template(source, opts);
 
   return out;
