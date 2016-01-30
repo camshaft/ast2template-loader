@@ -29,7 +29,7 @@ function Reporter(runner) {
   runner.on('fail', function(test) {
     console.error(test.err.stack);
     if (test.title) console.groupEnd();
-    console.log('%c' + test.title + ' failed (%dms)', 'color: red; font-style: italic', test.duration);
+    console.log('%c' + symbols.err + ' failed (%dms)', 'color: red; font-style: italic', test.duration);
   });
 }
 
