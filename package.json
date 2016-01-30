@@ -1,6 +1,6 @@
 {
   "name": "ast2template-loader",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "webpack loader for ast2template",
   "main": "index.js",
   "scripts": {
