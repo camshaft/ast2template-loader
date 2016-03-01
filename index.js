@@ -21,8 +21,8 @@ exports = module.exports = function(source) {
   opts.nativePath = !!opts['native-path'];
   opts.passThroughProps = !!opts['pass-through'];
   opts.name = 'render_' + filename
-    .replace(/-/g, '_')
-    .replace(/[\/\.]/g, '__');
+    .replace(/[\/\.]/g, '__')
+    .replace(/[^\w\_]/g, '_');
 
   opts.resolveFilter = function(extension, content, attrs) {
     var loaders = attrs.loaders || attrs.loader;
